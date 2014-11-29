@@ -1,4 +1,5 @@
 class Liker < ActiveRecord::Base
+  acts_as_liker
 end
 
 class Likeable < ActiveRecord::Base
