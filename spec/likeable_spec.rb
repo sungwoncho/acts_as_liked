@@ -1,4 +1,3 @@
-require 'acts_as_likeable'
 require 'spec_helper'
 
 describe ActsAsLikeable::Likeable do

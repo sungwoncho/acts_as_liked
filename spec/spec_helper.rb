@@ -1,3 +1,4 @@
+require 'acts_as_likeable'
 require 'active_record'
 require 'support/models'
 
