@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ActsAsLikeable::Liker do
+	
 	it "should be likeable" do
 		expect(Liker).to be_likeable
 	end

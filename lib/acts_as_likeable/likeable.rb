@@ -17,6 +17,13 @@ module ActsAsLikeable
     end
 
     module InstanceMethods
+      def like_count
+        likes.count
+      end
+
+      def liked_by?(liker)
+        likes.find_by(liker_id: liker.id, liker_type: liker.class.base_class.name).present?
+      end
     end
 
   end

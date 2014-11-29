@@ -2,6 +2,8 @@ require 'acts_as_likeable'
 require 'active_record'
 require 'support/models'
 
+require 'support/like_macros.rb'
+
 ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 
 load 'support/schema.rb' # Define schema
@@ -94,4 +96,6 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  config.include LikeMacros
 end

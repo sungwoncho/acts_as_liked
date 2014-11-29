@@ -11,3 +11,6 @@ end
 
 class NonLikeable < ActiveRecord::Base
 end
+
+class Like < ActiveRecord::Base
+end
