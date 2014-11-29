@@ -1,5 +1,5 @@
 require "acts_as_likeable/version"
 
 module ActsAsLikeable
-  # Your code goes here...
+  require 'acts_as_likeable/likeable.rb'
 end

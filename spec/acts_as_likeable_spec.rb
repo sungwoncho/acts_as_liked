@@ -1,7 +1,5 @@
 require 'spec_helper'
 
 describe ActsAsLikeable do
-  it "does something" do
-  	pending
-  end
+  specify { expect(ActsAsLikeable).to be_a(Module) }
 end
