@@ -7,6 +7,7 @@ module ActsAsLikeable
 
     module ClassMethods
       def acts_as_likeable
+        has_many :likes, as: :likeable, dependent: :destroy
         include ActsAsLikeable::Likeable::InstanceMethods
       end
 
