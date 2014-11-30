@@ -45,17 +45,28 @@ describe ActsAsLiked::Liker do
 	end
 
 	describe "#like" do
-		it "should create a like record" do
-			expect {
+		context "when liker hasn't liked likeable" do
+			it "should create a like record" do
+				expect {
+					liker.like(likeable)
+				}.to change(Like, :count).by(1)
+			end
+
+			it "should set association of the like record" do
 				liker.like(likeable)
-			}.to change(Like, :count).by(1)
+				like = Like.find_by(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name, liker_id: liker.id)
+				expect(like.liker).to eq liker
+				expect(like.likeable).to eq likeable
+			end
 		end
 
-		it "should set association of the like record" do
-			liker.like(likeable)
-			like = Like.find_by(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name, liker_id: liker.id)
-			expect(like.liker).to eq liker
-			expect(like.likeable).to eq likeable
+		context "when liker has liked likeable already" do
+			it "should do nothing" do
+				create_like(liker, likeable)
+				expect { 
+					liker.like(likeable)
+				}.to change(Like, :count).by(0)
+			end
 		end
 	end
 

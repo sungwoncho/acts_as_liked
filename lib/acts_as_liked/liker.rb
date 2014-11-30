@@ -22,7 +22,9 @@ module ActsAsLiked
       end
 
       def like(likeable)
-        self.likes.create(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name)
+        unless self.liked?(likeable)
+          self.likes.create(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name)
+        end
       end
 
       def unlike(likeable)
