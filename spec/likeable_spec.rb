@@ -29,7 +29,7 @@ describe ActsAsLikeable::Likeable do
 	end
 
 	describe "#liked_by?" do
-		context "when liker likes likeable" do
+		context "when liker has liked likeable" do
 			it "should return true" do
 				create_like(liker, likeable)
 				expect(likeable.liked_by?(liker)).to be true
