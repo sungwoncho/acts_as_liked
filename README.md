@@ -1,4 +1,4 @@
-# ActsAsLikeable
+# ActsAsLikeable [![Build Status](https://travis-ci.org/sungwoncho/acts_as_likeable.svg?branch=master)](https://travis-ci.org/sungwoncho/acts_as_likeable)
 
 Add like feature to any Active Record models through polymorphic association. Designate any models to act as a `Liker` or `Likeable`.
 
@@ -48,7 +48,7 @@ end
 
 Liker:
 
-```
+```ruby
 # Creates a new like record for @user, and @post
 @user.like(@post)
 
@@ -61,7 +61,7 @@ Liker:
 
 Likeable:
 
-```
+```ruby
 # Count the number of likes of @post
 @post.like_count
 
