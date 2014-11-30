@@ -1,7 +1,7 @@
 require 'generator_spec/test_case'
-require 'generators/migration_generator'
+require 'generators/acts_as_liked/migration_generator'
 
-describe ActsAsLikedGenerator, type: :generator do
+describe MigrationGenerator, type: :generator do
   include GeneratorSpec::TestCase
 
   destination File.expand_path("../tmp", File.dirname(__FILE__))
