@@ -1,19 +1,19 @@
 require 'spec_helper'
 
-describe ActsAsLiked::Liker do
+describe User do
 
-	let(:liker) { User.create(name: "Charlie") }
-	let(:likeable) { Post.create(name: "cheese") }
+	let(:charlie) { User.create(name: "Charlie") }
+	let(:cheese) { Food.create(name: "cheese") }
 	
-	it "should be likeable" do
-		expect(User).to be_likeable
+	it "should be a liker" do
+		expect(User).to be_liker
 	end
 
 	describe "instance methods" do
 		it "should be defined" do
-			expect(liker).to respond_to(:like)
-			expect(liker).to respond_to(:unlike)
-			expect(liker).to respond_to(:liked?)
+			expect(charlie).to respond_to(:like)
+			expect(charlie).to respond_to(:unlike)
+			expect(charlie).to respond_to(:liked?)
 		end
 	end
 
@@ -32,14 +32,14 @@ describe ActsAsLiked::Liker do
 	describe "#liked?" do
 		context "when liker has liked likedable" do
 			it "should return true" do
-				create_like(liker, likeable)
-				expect(liker.liked?(likeable)).to be true
+				create_like(charlie, cheese)
+				expect(charlie.liked?(cheese)).to be true
 			end
 		end
 
 		context "when liker hasn't liked likeable" do
 			it "should return false" do
-				expect(liker.liked?(likeable)).to be false
+				expect(charlie.liked?(cheese)).to be false
 			end
 		end
 	end
@@ -48,23 +48,23 @@ describe ActsAsLiked::Liker do
 		context "when liker hasn't liked likeable" do
 			it "should create a like record" do
 				expect {
-					liker.like(likeable)
+					charlie.like(cheese)
 				}.to change(Like, :count).by(1)
 			end
 
 			it "should set association of the like record" do
-				liker.like(likeable)
-				like = Like.find_by(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name, liker_id: liker.id)
-				expect(like.liker).to eq liker
-				expect(like.likeable).to eq likeable
+				charlie.like(cheese)
+				like = Like.find_by(likeable_id: cheese.id, likeable_type: cheese.class.base_class.name, liker_id: charlie.id)
+				expect(like.liker).to eq charlie
+				expect(like.likeable).to eq cheese
 			end
 		end
 
 		context "when liker has liked likeable already" do
 			it "should do nothing" do
-				create_like(liker, likeable)
+				create_like(charlie, cheese)
 				expect { 
-					liker.like(likeable)
+					charlie.like(cheese)
 				}.to change(Like, :count).by(0)
 			end
 		end
@@ -73,9 +73,9 @@ describe ActsAsLiked::Liker do
 	describe "#unlike" do
 		context "when liker has liked likeable" do
 			it "should destroy the like record" do
-				create_like(liker, likeable)
+				create_like(charlie, cheese)
 				expect {
-					liker.unlike(likeable)
+					charlie.unlike(cheese)
 				}.to change(Like, :count).by(-1)
 			end
 		end
@@ -83,7 +83,7 @@ describe ActsAsLiked::Liker do
 		context "when liker has not liked likeable" do
 			it "should do nothing" do
 				expect {
-					liker.unlike(likeable)
+					charlie.unlike(cheese)
 				}.to change(Like, :count).by(0)
 			end
 		end

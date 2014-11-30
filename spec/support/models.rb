@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   acts_as_liker
 end
 
-class Post < ActiveRecord::Base
+class Food < ActiveRecord::Base
   acts_as_likeable
 end
 

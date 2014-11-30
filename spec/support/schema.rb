@@ -14,7 +14,7 @@ ActiveRecord::Schema.define do
       t.string :name
     end
 
-    create_table :posts do |t|
+    create_table :foods do |t|
       t.string :name
     end
 
