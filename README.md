@@ -29,7 +29,7 @@ And don't forget to migrate your database
 Add `acts_as_likeable` to any models, and its instances can be liked by other models.
 
 ```ruby
-class Food < ActiveRecord::Base
+class Post < ActiveRecord::Base
   acts_as_likeable
 end
 ```
@@ -39,7 +39,7 @@ end
 Add `acts_as_liker` to any models, and it can like instances of other models.
 
 ```ruby
-class Person < ActiveRecord::Base
+class User < ActiveRecord::Base
   acts_as_liker
 end
 ```
