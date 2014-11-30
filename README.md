@@ -1,4 +1,4 @@
-# ActsAsLiked [![Build Status](https://travis-ci.org/sungwoncho/acts_as_liked.svg?branch=master)](https://travis-ci.org/sungwoncho/acts_as_liked)
+# ActsAsLiked [![Build Status](https://travis-ci.org/sungwoncho/acts_as_liked.svg?branch=master)](https://travis-ci.org/sungwoncho/acts_as_liked) [![Coverage Status](https://coveralls.io/repos/sungwoncho/acts_as_liked/badge.png?branch=master)](https://coveralls.io/r/sungwoncho/acts_as_liked?branch=master)
 
 Add like feature to any Active Record models through polymorphic association. Designate any models to act as a `Liker` or `Likeable`.
 
