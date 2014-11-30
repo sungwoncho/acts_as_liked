@@ -1,4 +1,4 @@
-module ActsAsLikeable
+module ActsAsLiked
   module Likeable
 
     def self.included(base)
@@ -8,7 +8,7 @@ module ActsAsLikeable
     module ClassMethods
       def acts_as_likeable
         has_many :likes, as: :likeable, dependent: :destroy
-        include ActsAsLikeable::Likeable::InstanceMethods
+        include ActsAsLiked::Likeable::InstanceMethods
       end
 
       def likeable?

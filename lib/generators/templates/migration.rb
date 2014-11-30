@@ -1,4 +1,4 @@
-class ActsAsLikeableMigration < ActiveRecord::Migration
+class ActsAsLikedMigration < ActiveRecord::Migration
   def self.up
     create_table :likes do |t|
       t.references :likeable, polymorphic: true

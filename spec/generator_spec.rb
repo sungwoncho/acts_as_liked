@@ -1,7 +1,7 @@
 require 'generator_spec/test_case'
 require 'generators/migration_generator'
 
-describe ActsAsLikeableGenerator, type: :generator do
+describe ActsAsLikedGenerator, type: :generator do
   include GeneratorSpec::TestCase
 
   destination File.expand_path("../tmp", File.dirname(__FILE__))
@@ -27,7 +27,7 @@ describe ActsAsLikeableGenerator, type: :generator do
   	expect(destination_root).to have_structure { 
   		directory "db" do
   			directory "migrate" do
-  				migration "acts_as_likeable_migration"
+  				migration "acts_as_liked_migration"
   			end
   		end
   	}

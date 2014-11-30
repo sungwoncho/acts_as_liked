@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ActsAsLikeable::Liker do
+describe ActsAsLiked::Liker do
 
 	let(:liker) { Liker.create(name: "Charlie") }
 	let(:likeable) { Likeable.create(name: "cheese") }

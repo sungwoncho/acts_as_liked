@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'acts_as_likeable/version'
+require 'acts_as_liked/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "acts_as_likeable"
-  spec.version       = ActsAsLikeable::VERSION
+  spec.name          = "acts_as_liked"
+  spec.version       = ActsAsLiked::VERSION
   spec.authors       = ["Sung Won Cho"]
   spec.email         = ["mikeswcho@gmail.com"]
   spec.summary       = %q{Add like feature to any Active Record models}
-  spec.homepage      = "https://github.com/sungwoncho/acts_as_likeable"
+  spec.homepage      = "https://github.com/sungwoncho/acts_as_liked"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

@@ -1,3 +1,3 @@
-module ActsAsLikeable
+module ActsAsLiked
   VERSION = "0.0.1"
 end

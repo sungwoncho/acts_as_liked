@@ -1,7 +1,7 @@
 require 'rails/generators'
 require 'rails/generators/migration'
 
-class ActsAsLikeableGenerator < Rails::Generators::Base
+class ActsAsLikedGenerator < Rails::Generators::Base
   include Rails::Generators::Migration
 
   def self.source_root
@@ -13,7 +13,7 @@ class ActsAsLikeableGenerator < Rails::Generators::Base
   end
 
   def create_migration_file
-    migration_template 'migration.rb', 'db/migrate/acts_as_likeable_migration.rb'
+    migration_template 'migration.rb', 'db/migrate/acts_as_liked_migration.rb'
   end
 
   def create_model
