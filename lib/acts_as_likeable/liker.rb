@@ -17,7 +17,18 @@ module ActsAsLikeable
     end
 
     module InstanceMethods
+      def liked?(likeable)
+        likes.find_by(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name).present?
+      end
 
+      def like(likeable)
+        likes.create(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name)
+      end
+
+      def unlike(likeable)
+        like_record = likes.find_by(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name)
+        like_record.try(:destroy)
+      end
     end
 
   end
