@@ -1,7 +1,7 @@
 require 'rails/generators'
 require 'rails/generators/migration'
 
-class ActsAsLikedGenerator < Rails::Generators::Base
+class MigrationGenerator < Rails::Generators::Base
   include Rails::Generators::Migration
 
   def self.source_root
