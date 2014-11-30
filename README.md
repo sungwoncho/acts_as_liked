@@ -1,4 +1,4 @@
-# ActsAsLikeable [![Build Status](https://travis-ci.org/sungwoncho/acts_as_likeable.svg?branch=master)](https://travis-ci.org/sungwoncho/acts_as_likeable)
+# ActsAsLiked [![Build Status](https://travis-ci.org/sungwoncho/acts_as_liked.svg?branch=master)](https://travis-ci.org/sungwoncho/acts_as_liked)
 
 Add like feature to any Active Record models through polymorphic association. Designate any models to act as a `Liker` or `Likeable`.
 
@@ -7,7 +7,7 @@ Add like feature to any Active Record models through polymorphic association. De
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'acts_as_likeable'
+gem 'acts_as_liked'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Run generator:
 
-    $ rails generate acts_as_likeable
+    $ rails generate acts_as_liked
 
 And don't forget to migrate your database
 
