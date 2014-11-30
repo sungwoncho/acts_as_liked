@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sung Won Cho"]
   spec.email         = ["mikeswcho@gmail.com"]
   spec.summary       = %q{Add like feature to any Active Record models}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/sungwoncho/acts_as_likeable"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
