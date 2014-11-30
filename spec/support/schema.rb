@@ -10,19 +10,11 @@ ActiveRecord::Schema.define do
     add_index :likes, [:likeable_id, :likeable_type]
     add_index :likes, [:liker_id, :liker_type]
 
-    create_table :likers do |t|
+    create_table :users do |t|
       t.string :name
     end
 
-    create_table :likeables do |t|
-      t.string :name
-    end
-
-    create_table :non_likers do |t|
-      t.string :name
-    end
-
-    create_table :non_likeables do |t|
+    create_table :posts do |t|
       t.string :name
     end
 

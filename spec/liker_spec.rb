@@ -2,21 +2,29 @@ require 'spec_helper'
 
 describe ActsAsLiked::Liker do
 
-	let(:liker) { Liker.create(name: "Charlie") }
-	let(:likeable) { Likeable.create(name: "cheese") }
+	let(:liker) { User.create(name: "Charlie") }
+	let(:likeable) { Post.create(name: "cheese") }
 	
 	it "should be likeable" do
-		expect(Liker).to be_likeable
+		expect(User).to be_likeable
+	end
+
+	describe "instance methods" do
+		it "should be defined" do
+			expect(liker).to respond_to(:like)
+			expect(liker).to respond_to(:unlike)
+			expect(liker).to respond_to(:liked?)
+		end
 	end
 
 	describe "Association" do
 		it "should have many likes" do
-			association = Liker.reflect_on_association(:likes)
+			association = User.reflect_on_association(:likes)
 			expect(association.macro).to eq :has_many
 		end
 
 		it "should have many likes with dependent destroy" do
-			association = Liker.reflect_on_association(:likes)
+			association = User.reflect_on_association(:likes)
 			expect(association.options).to include :dependent => :destroy
 		end
 	end

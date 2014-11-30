@@ -7,7 +7,7 @@ module ActsAsLiked
 
     module ClassMethods
       def acts_as_liker
-        has_many :likes, dependent: :destroy
+        has_many :likes, as: :liker, dependent: :destroy
         include ActsAsLiked::Liker::InstanceMethods
       end
 
@@ -18,11 +18,11 @@ module ActsAsLiked
 
     module InstanceMethods
       def liked?(likeable)
-        likes.find_by(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name).present?
+        self.likes.find_by(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name).present?
       end
 
       def like(likeable)
-        likes.create(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name)
+        self.likes.create(likeable_id: likeable.id, likeable_type: likeable.class.base_class.name)
       end
 
       def unlike(likeable)

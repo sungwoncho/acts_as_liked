@@ -1,18 +1,12 @@
-class Liker < ActiveRecord::Base
+class User < ActiveRecord::Base
   acts_as_liker
 end
 
-class Likeable < ActiveRecord::Base
+class Post < ActiveRecord::Base
   acts_as_likeable
 end
 
-class NonLiker < ActiveRecord::Base
-end
-
-class NonLikeable < ActiveRecord::Base
-end
-
 class Like < ActiveRecord::Base
-  belongs_to :liker
-  belongs_to :likeable
+  belongs_to :liker, polymorphic: true
+  belongs_to :likeable, polymorphic: true
 end
