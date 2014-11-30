@@ -1,6 +1,8 @@
 require 'acts_as_liked'
 require 'active_record'
 require 'support/models'
+require 'coveralls'
+Coveralls.wear!
 
 require 'support/like_macros.rb'
 

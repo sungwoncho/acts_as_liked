@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "sqlite3"
   spec.add_development_dependency "activerecord"
   spec.add_development_dependency "generator_spec"
+  spec.add_development_dependency "coveralls"
 end
