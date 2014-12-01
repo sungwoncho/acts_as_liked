@@ -56,7 +56,7 @@ Liker:
 @user.unlike(@post)
 
 # Check if @user has liked @post
-@user.liked?(@post) # Check if the user has liked the post
+@user.liked?(@post)
 ```
 
 Likeable:
