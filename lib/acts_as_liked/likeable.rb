@@ -24,6 +24,17 @@ module ActsAsLiked
       def liked_by?(liker)
         likes.find_by(liker_id: liker.id, liker_type: liker.class.base_class.name).present?
       end
+
+      def liked_by(liker)
+        unless liker.liked?(self)
+          likes.create(liker_id: liker.id, liker_type: liker.class.base_class.name)
+        end
+      end
+
+      def unliked_by(liker)
+        like_record = likes.find_by(liker_id: liker.id, liker_type: liker.class.base_class.name)
+        like_record.try(:destroy)
+      end
     end
 
   end
