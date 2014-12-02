@@ -42,4 +42,58 @@ describe Food, focus: true do
 			end
 		end
 	end
+
+	describe "#liked_by" do
+		context "when liker has not liked likabled" do
+			it "should create Like" do
+				expect{
+					cheese.liked_by(charlie)
+				}.to change(Like, :count).by(1)
+			end
+
+			it "should set Like to belong to liker" do
+				cheese.liked_by(charlie)
+				like = Like.find_by(likeable_id: cheese.id, likeable_type: cheese.class.base_class.name, liker_id: charlie.id, liker_type: charlie.class.base_class.name)
+
+				expect(like.liker).to eq charlie
+			end
+
+			it "should set Like to belong to likeable" do
+				cheese.liked_by(charlie)
+				like = Like.find_by(likeable_id: cheese.id, likeable_type: cheese.class.base_class.name, liker_id: charlie.id, liker_type: charlie.class.base_class.name)
+
+				expect(like.likeable).to eq cheese				
+			end
+		end
+
+		context "when liker has already liked likeable" do
+			it "should not create Like" do
+				create_like(charlie, cheese)
+
+				expect { 
+					cheese.liked_by(charlie)
+				}.to change(Like, :count).by(0)
+			end
+		end
+	end
+
+	describe "#unliked_by" do
+		context "when liker has liked likedable" do
+			it "should destroy the like record" do
+				create_like(charlie, cheese)
+
+				expect { 
+					cheese.unliked_by(charlie)
+				}.to change(Like, :count).by(-1)
+			end
+		end
+
+		context "when liker has not liked likeable" do
+			it "should not destroy any Likes" do
+				expect { 
+					cheese.unliked_by(charlie)
+				}.to change(Like, :count).by(0)
+			end
+		end
+	end
 end
