@@ -1,6 +1,6 @@
 # ActsAsLiked [![Build Status](https://travis-ci.org/sungwoncho/acts_as_liked.svg?branch=master)](https://travis-ci.org/sungwoncho/acts_as_liked) [![Coverage Status](https://coveralls.io/repos/sungwoncho/acts_as_liked/badge.png?branch=master)](https://coveralls.io/r/sungwoncho/acts_as_liked?branch=master)
 
-Add like feature to any Active Record models through polymorphic association. Designate any models to act as a `Liker` or `Likeable`.
+Add like feature to any Active Record models through polymorphic association. Designate any models to act as a *Liker* or *Likeable*.
 
 ## Installation
 
@@ -44,20 +44,11 @@ class User < ActiveRecord::Base
 end
 ```
 
+It is not necessary to use both `acts_as_liker` and `acts_as_likeable`. You can simply drop in one of them into your model and you will be good to go.
+
 ### API
 
-Liker:
-
-```ruby
-# Creates a new like record for @user, and @post
-@user.like(@post)
-
-# Destroys the like record
-@user.unlike(@post)
-
-# Check if @user has liked @post
-@user.liked?(@post)
-```
+Following APIs will become available to *Likeable* and *Liker*.
 
 Likeable:
 
@@ -67,6 +58,25 @@ Likeable:
 
 # Check if @post is liked by @user
 @post.liked_by?(@user)
+
+# Create a new Like record for @user, and @post
+@post.liked_by(@user)
+
+# Destroy the Like record
+@post.unliked_by(@user)
+```
+
+Liker:
+
+```ruby
+# Create a new Like record for @user, and @post
+@user.like(@post)
+
+# Destroy the Like record
+@user.unlike(@post)
+
+# Check if @user has liked @post
+@user.liked?(@post)
 ```
 
 ## Contributing
