@@ -48,9 +48,9 @@ It is not necessary to use both `acts_as_liker` and `acts_as_likeable`. You can 
 
 ### API
 
-Following APIs will become available to *Likeable* and *Liker*.
+Following APIs will be provided to *Likeable* and *Liker*.
 
-Likeable:
+*Likeable*
 
 ```ruby
 # Count the number of likes of @post
@@ -66,7 +66,7 @@ Likeable:
 @post.unliked_by(@user)
 ```
 
-Liker:
+*Liker*
 
 ```ruby
 # Create a new Like record for @user, and @post
